@@ -1,14 +1,20 @@
 {
 	"name": "gatsby-wordpress-experimental-inline-images",
 	"description": "A Gatsby plugin to turn remote inline images to local static images",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "Tyler Barnes <tylerdbarnes@gmail.com>",
-	"contributors": [ "Pawel Szafer <pszafer@gmail.com>" ],
+	"contributors": [
+		"Pawel Szafer <pszafer@gmail.com>"
+	],
 	"keywords": [
 		"gatsby plugin"
 	],
 	"license": "MIT",
 	"main": "n/a",
+	"babel": {
+		"presets": ["stage-0"]
+
+	},
 	"dependencies": {
 		"@babel/runtime": "^7.0.0",
 		"cheerio": "^1.0.0-rc.2"
@@ -16,7 +22,9 @@
 	"devDependencies": {
 		"@babel/cli": "^7.0.0",
 		"@babel/core": "^7.0.0",
+		"babel-cli": "^6.26.0",
 		"babel-preset-gatsby-package": "^0.1.4",
+		"babel-preset-stage-0": "^6.24.1",
 		"cross-env": "^5.1.4"
 	},
 	"scripts": {
