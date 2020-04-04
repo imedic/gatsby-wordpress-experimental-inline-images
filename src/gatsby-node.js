@@ -18,7 +18,7 @@ exports.sourceNodes = async (
 		maxWidth: 650,
 		wrapperStyle: ``,
 		backgroundColor: `white`,
-		postTypes: ["post", "page"],
+		postTypes: ["Post", "Page"],
 		withWebp: false,
 		useACF: false,
 		// linkImagesToOriginal: true,
@@ -33,12 +33,13 @@ exports.sourceNodes = async (
 
 	// for now just get all posts and pages.
 	// this will be dynamic later
+	// console.log(nodes)
 	const entities = nodes.filter(
 		node =>
-			node.internal.owner === "gatsby-source-wordpress" &&
+			node.internal.owner === "gatsby-source-wordpress-experimental" &&
 			options.postTypes.includes(node.type),
 	)
-
+	
 	// we need to await transforming all the entities since we may need to get images remotely and generating fluid image data is async
 	await Promise.all(
 		entities.map(async entity =>
@@ -52,9 +53,10 @@ exports.sourceNodes = async (
 					createNodeId,
 				},
 				options,
-			),
-		),
-	)
+				),
+				),
+		)
+	console.log("PYP", entities)
 }
 
 const transformInlineImagestoStaticImages = async (
